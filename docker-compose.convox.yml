@@ -1,0 +1,17 @@
+version: '2'
+services:
+  app:
+    build: .
+    labels:
+      - convox.deployment.minimum=50
+      - convox.deployment.maximum=200
+      - convox.port.443.protocol=https
+      - convox.idle.timeout=60
+    ports:
+      - "443:3000"
+  memcached:
+    image: memcached:latest
+networks:
+  default:
+    external:
+      name: sharetribe
