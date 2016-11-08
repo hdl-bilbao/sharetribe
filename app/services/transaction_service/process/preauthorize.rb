@@ -157,10 +157,7 @@ module TransactionService::Process
     private
 
     def initiate_booking(tx:)
-      auth_context = {
-        marketplace_id: tx[:community_uuid],
-        actor_id: tx[:starter_uuid]
-      }
+      binding.pry
 
       HarmonyClient.post(
         :initiate_booking,
@@ -173,8 +170,7 @@ module TransactionService::Process
           end: tx[:booking][:end_on]
         },
         opts: {
-          max_attempts: 3,
-          auth_context: auth_context
+          max_attempts: 3
         }).rescue { |error_msg, data|
 
         new_data =

@@ -5,6 +5,7 @@ module SessionContextStore
     [:marketplace_uuid, :uuid],
     [:user_id, :string],
     [:user_uuid, :uuid],
+    [:user_username, :string],
     [:user_role, one_of: [nil, :user, :admin]])
 
   module_function
@@ -33,6 +34,7 @@ module SessionContextStore
 
       user_id: person&.id,
       user_uuid: person&.uuid_object,
+      user_username: person&.username,
       user_role: role
     }
 

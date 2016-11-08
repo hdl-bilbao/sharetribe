@@ -376,10 +376,7 @@ module MarketplaceService
       def paid(transaction)
         return unless transaction[:availability].to_sym == :booking
 
-        auth_context = {
-          marketplace_id: transaction[:community_uuid],
-          actor_id: transaction[:listing_author_uuid]
-        }
+        binding.pry
 
         HarmonyClient.post(
           :accept_booking,
@@ -391,8 +388,7 @@ module MarketplaceService
             reason: :provider_accepted
           },
           opts: {
-            max_attempts: 3,
-            auth_context: auth_context
+            max_attempts: 3
           }).on_error { |error_msg, data|
           log_and_notify_harmony_error!("Failed to accept booking",
                                         :failed_accept_booking,
@@ -401,12 +397,10 @@ module MarketplaceService
       end
 
       def rejected(transaction)
-        return unless transaction[:availability].to_sym == :booking
 
-        auth_context = {
-          marketplace_id: transaction[:community_uuid],
-          actor_id: transaction[:listing_author_uuid]
-        }
+        binding.pry
+
+        return unless transaction[:availability].to_sym == :booking
 
         HarmonyClient.post(
           :reject_booking,
@@ -422,8 +416,7 @@ module MarketplaceService
             reason: :unknown
           },
           opts: {
-            max_attempts: 3,
-            auth_context: auth_context
+            max_attempts: 3
           }).on_error { |error_msg, data|
           log_and_notify_harmony_error!("Failed to reject booking",
                                         :failed_reject_booking,
