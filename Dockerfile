@@ -2,7 +2,7 @@ FROM ruby:2.3.1
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
-ENV REFRESHED_AT 2016-11-02
+ENV REFRESHED_AT 2016-11-08
 
 RUN apt-get update \
     && apt-get dist-upgrade -y
