@@ -8,5 +8,4 @@ tar cfz assets.tar.gz \
     client/app/i18n \
     client/app/routes \
     public/assets \
-    public/webpack \
-    tmp/cache/assets/production/sprockets
+    public/webpack
