@@ -10,6 +10,7 @@ else
     export DATABASE_URL="mysql2://user:pass@127.0.0.1/dummy"
 
     # Set these to correct values
+    # FIXME OS defaults
     export font_proximanovasoft_url=https://assets-sharetribecom.sharetribe.com/webfonts/proximanovasoft/
     export ss_pika_location=//assets-sharetribecom.sharetribe.com/webfonts/ss-pika/ss-pika.css
     export ss_social_location=//assets-sharetribecom.sharetribe.com/webfonts/ss-pika/ss-social.css
